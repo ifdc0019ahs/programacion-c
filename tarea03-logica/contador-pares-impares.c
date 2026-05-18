@@ -65,7 +65,7 @@ int main()
         }
         else cuantosImpares++;
     }
-    printf("Hay %d numeros pares en tu array \n",cuantosPares);
-    printf("Hay %d numeros impares en tu array \n",cuantosImpares);
+printf("Hay %d numeros pares en tu array \n",cuantosPares);
+printf("Hay %d numeros impares en tu array \n",cuantosImpares);
 return 0;
 }
