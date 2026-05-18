@@ -34,6 +34,7 @@ float pedirNumero(const char *mensaje)
 // Función para pedir un numero al usuario
 // Modificando la funcion usada en cajero-simple.c para que permita float (no solamente enteros)
 // Aseguramos que el valor es un numero. Si no, se le vuelve a pedir hasta que lo sea
+// El parametro (const char *mensaje) se usa para mostrar un mensaje (que le pedimos al usuario)
 {
     float cantidad;
     do {
@@ -55,51 +56,60 @@ float pedirNumero(const char *mensaje)
 
 int main()
 {
-    // Pedir datos
+    // Pedir datos e iniciar variables
     bienvenida("CALCULADORA BASICA"); // Mensajillo de bienvenida (funcion reusada)
-    float num1 = pedirNumero("Entra el primer numero: "); // Pedir primer numero
-    printf("DEBUGGING (borrar antes de programa final); num1= %f \n", num1); // DEBUGGING 
 
-    float num2 = pedirNumero("Entra el segundo numero: "); // Pedir segundo numero
-    printf("DEBUGGING (borrar antes de programa final); num2= %f \n", num2); // DEBUGGING 
+    int operacion = 0; // Inicializamos operacion
+    float op = 0.0;  // Inicializamos op
+    float resultado = 0.0; // Inicializamos resultado
+    float num1 = 0.0; // Inicializamos num1
+    float num2 = 0.0; // Inicializamos num2
 
-    int operacion = 0;
-    do
+    do  // Repetir bucle hasta que la operacion es 5.Salir
     {
-        float op = pedirNumero("Entra la operacion (1. Sumar | 2. Restar | 3. Multiplicar | 4. Dividir | 5. Salir): ");
-        operacion = (int)op; // Casting para convertir el float a integer
-        printf("DEBUGGING (borrar antes de programa final); operacion= %d \n", operacion); // DEBUGGING 
-    } while ((operacion < 1) || (operacion > 5)); // Asegura que operacion es permitida
-    
-    // Procesar datos
-    float resultado = 0.0;
-    switch (operacion)
-    {
-    case 1: // 1. Sumar
-        resultado = num1 + num2;
-        printf("SUMA: %f + %f = %f\n",num1, num2, resultado);
-        break;
-    case 2: // 2. Restar
-        resultado = num1 - num2;
-        printf("RESTA: %f - %f = %f\n",num1, num2, resultado);
-        break;
-    case 3: // 3. Multiplicar
-        resultado = num1 * num2;
-        printf("MULTIPLICACION: %f * %f = %f\n",num1, num2, resultado);
-        break;
-    case 4: // 4. Dividir
-        resultado = num1 / num2;
-        printf("DIVISION: %f / %f = %f\n",num1, num2, resultado);
-        break;
-    case 5: // 5. Salir
-        printf("SALIR");
-        break;
-    default:
-        break;
-    }
+        num1 = pedirNumero("Entra el primer numero: "); // Pedir primer numero
+        printf("DEBUGGING (borrar antes de programa final); num1= %f \n", num1); // DEBUGGING 
 
-    // Mostrar resultados
-    // printf("Resultado = %f\n",resultado);
+        num2 = pedirNumero("Entra el segundo numero: "); // Pedir segundo numero
+        printf("DEBUGGING (borrar antes de programa final); num2= %f \n", num2); // DEBUGGING 
 
+        do // Bucle para pedir el codigo de operacion y asegurar que es un numero entre 1 y 5
+        {
+            op = pedirNumero("Entra la operacion (1. Sumar | 2. Restar | 3. Multiplicar | 4. Dividir | 5. Salir): ");
+            operacion = (int)op; // Casting para convertir la salida de pedirNumero (que es float) a integer
+            printf("DEBUGGING (borrar antes de programa final); operacion= %d \n", operacion); // DEBUGGING 
+        } while ((operacion < 1) || (operacion > 5)); // Asegura que operacion es permitida (entre 1 y 5)
+        
+        // Procesar datos
+        resultado = 0.0;
+        switch (operacion)
+        {
+        case 1: // 1. Sumar
+            resultado = num1 + num2;
+            printf("SUMA: %f + %f = %f\n",num1, num2, resultado);
+            break;
+        case 2: // 2. Restar
+            resultado = num1 - num2;
+            printf("RESTA: %f - %f = %f\n",num1, num2, resultado);
+            break;
+        case 3: // 3. Multiplicar
+            resultado = num1 * num2;
+            printf("MULTIPLICACION: %f * %f = %f\n",num1, num2, resultado);
+            break;
+        case 4: // 4. Dividir
+            resultado = num1 / num2;
+            printf("DIVISION: %f / %f = %f\n",num1, num2, resultado);
+            break;
+        case 5: // 5. Salir
+            printf("SALIR");
+            break;
+        default:
+            break;
+        }
+
+        // Mostrar resultados
+        // printf("Resultado = %f\n",resultado);
+
+    } while (operacion !=5); // Repetimos bucle mientras la operacion no es 5.Salir
     return 0;
 }
