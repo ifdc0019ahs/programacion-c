@@ -34,13 +34,13 @@ void bienvenida(const char *mensaje)
     printf("=========================================================\n");
 }
 
-int pedirCantidad()
+int pedirEntero()
 // Función para pedir una cantidad de dinero al usuario
 // Aseguramos que la cantidad es positiva. Si no, se le vuelve a pedir hasta que lo sea
 {
     int cantidad;
     do {
-        printf("Entra una cantidad de dinero a retirar: ");
+        printf("Entra una cantidad de dinero a retirar (ignoraré decimales): ");
         // NOTE: scanf doesn't handle invalid inputs gracefully. 
         // If you enter a string, float, or non-integer, scanf fails to read an integer, leaves the invalid input in the buffer, 
         // and cantidad remains unchanged (or uninitialized in some cases), causing an infinite loop 
@@ -70,7 +70,7 @@ int main() {
 
     // Pedir datos
     bienvenida("WELCOME TO AMADO BANK"); // Mensajillo de bienvenida (funcion reusada)
-    int cantidadARetirar = pedirCantidad();
+    int cantidadARetirar = pedirEntero();
     printf("\nHas entrado la Cantidad a retirar de: %d euros\n", cantidadARetirar);
     
     // Procesar datos

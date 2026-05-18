@@ -106,10 +106,7 @@ int main()
         default:
             break;
         }
-
-        // Mostrar resultados
-        // printf("Resultado = %f\n",resultado);
-
+        
     } while (operacion !=5); // Repetimos bucle mientras la operacion no es 5.Salir
     return 0;
 }
