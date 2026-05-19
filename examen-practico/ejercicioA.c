@@ -18,27 +18,28 @@ El programa deberá:
 int main ()
 {
     // Pedir datos y declarar variables
-    int edad = 0; // Edad es numero entero. Inicializamos a cero
-    float nota = 0.0; // Nota es un decimal. Inicializamos a cero
+    int edad = 0; // Edad es numero entero (int). Inicializamos a cero
+    float nota = 0.0; // Nota es un decimal (float). Inicializamos a cero
 
-    printf("========================= \n"); 
-    printf("Ejercicio A: Edad y Nota \n"); 
-    printf("========================= \n"); 
+    printf("==============================\n"); 
+    printf("== IFDC0019: AMADO HIDALGO ==\n");
+    printf("== Ejercicio A: Edad y Nota ==\n");  
+    printf("==============================\n"); 
 
-    do // Bucle para asegurar que edad es un numero positivo. En este ejemplo sencillo, NO vamos a verificar otras restricciones (e.g. string, float)
+    do // Bucle para pedir edad y asegurar que es un numero positivo. En este ejemplo sencillo, NO vamos a verificar otras restricciones (e.g. string, float)
     {
         printf("Entra tu edad: "); // Mensaje explicativo
         scanf("%d", &edad); // Usamos scanf para pedir valor al usuario %d indica numero entero
     } while (edad < 0); // Repite si edad es negativo. NOTA: Podiamos repetir tambien si edad es > 100 
     
-    do  // Bucle para asegurar que nota es un numero positivo. En este ejemplo sencillo, NO vamos a verificar otras restricciones (e.g. string)
+    do  // Bucle para pedir nota y asegurar que es un numero positivo. En este ejemplo sencillo, NO vamos a verificar otras restricciones (e.g. string)
     {
         printf("Entra la nota del examen: "); // Mensaje explicativo
         scanf("%f", &nota); // Usamos scanf para pedir valor al usuario %f indica numero decimal (float)
     } while (nota < 0.0);
     
     // Calcular cuántos años faltan para cumplir 100 años utilizando operadores matemáticos
-    printf("Te faltan %d años para los 100 \n", (100-edad)); // Podriamos tb poner un IF por si el usuario entra un valos > 100
+    printf("Te faltan %d años para los 100 \n", (100-edad)); // Podriamos tb poner un IF por si el usuario habia entrado un valor > 100
 
     // Mostrar si la nota es mayor o igual a 5 utilizando operadores de comparación.
     if (nota >= 5.0)
